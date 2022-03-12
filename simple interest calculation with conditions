@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int t;
+    float p,r,i,sum;
+    i=0;
+    printf("enter principle amount:");
+    scanf("%f",&p);
+    printf("enter time in months:");
+    scanf("%d",&t);
+    if(t<=36)
+    {
+        if(t<=12)
+        {
+            r = 3;
+        i=p*t*r/100;
+        sum = p + i;
+        printf("interest rate is %f\n",r);
+        printf("sum is %f\n",sum);
+        }
+     else
+     {
+         r = 2;
+         i=p*t*r/100;
+         sum = p + i;
+         printf("interest rate is %f\n",r);
+         printf("sum is  %f\n",sum);
+     }
+    }
+  
+}
