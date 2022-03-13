@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main()
+{
+    char ticket_status,ticket_type,game_type,game_cost;
+    int ticket_price;
+    printf("are tickets available ?, enter 'Y' or 'N' \n");
+    scanf("%c",&ticket_status);
+    while ((getchar()) != '\n');
+    
+    if(ticket_status=='y'|| ticket_status=='Y')
+    {   
+        printf("wiil go to movie \n");
+        printf("show ticket price \n 1.100 \n 2.200 \n 3.300 \n");
+        scanf("%d",&ticket_price);
+        switch(ticket_price)
+        {
+            case 1:
+                    printf("Low class seat selected");
+                    break;
+           case 2:
+                    printf("Medium class seat selected");
+                    break;
+           case 3:
+                    printf("Balcony class seat selected");
+                    break;
+            default:
+                    printf("invalid option");
+                    break;
+
+        }
+        
+    }
+    else if(ticket_status=='n'|| ticket_status=='N')
+    {
+        printf("Go to game zone \n");
+        printf("Choose Games \n 1.Four Arcade Games \n 2.Three Shooting Games \n 3.Three VR Games \n");
+        scanf("%c",&game_type);+
+        switch(game_type)
+        {
+            case 1:
+                    printf("Each game cost 35rs");
+                    printf("4 Arcade games selected");
+                    break;
+            case 2:
+                    printf("Each game cost 55rs");
+                    printf("3 Shooting games selected");
+                    break;
+            case 3:
+                    printf("Each game cost 125rs");
+                    printf("4 VR games selected");
+                    break;
+            default:
+                    printf("invalid option");
+                    break;
+        }
+    }
+   
+ return 0;
+}
