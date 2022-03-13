@@ -1,37 +1,53 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 int main()
 {
-    int num1,num2,sum,sub,mul,division;
-    char op;
-    printf("enter two numbers:");
-    scanf("%d %d",&num1,&num2);
-    printf("select operator\n 1.+\n 2.-\n 3.*\n 4./\n");
-    //fflush(stdout);
-    //fflush(stdin);
-    while ((getchar()) != '\n');
-    op = getchar();
-    switch(op)
+    char ticket_status;
+    int ticket_type;
+    printf("Are tickets available ?, Enter 'Y' or 'N'\n");
+    scanf("%c", &ticket_status);
+    
+    if(ticket_status == 'y' || ticket_status == 'Y')
     {
-      case '+':
-                sum = num1 + num2;
-               printf("%d\n",sum);
-               break;
-       case '-':
-                sub = num1 - num2;
-               printf("%d\n",sub);
-               break;
-       case '*':
-                 mul = num1*num2;
-               printf("%d\n",mul);
-               break;
-       case '/':
-                 division = num1 / num2;
-               printf("%d\n",division);
-               break;
-       default:
-               printf("inavlid option");
-               break;
+        printf("Will go by train\n");
+        printf("Please select ticket type:\n 1. 2S\n 2. SL\n 3. 1A\n");
+        scanf("%d", &ticket_type);
+        
+        switch(ticket_type)
+        {
+            case 1:
+                printf("2S Ticket Selected\n");
+                break;
+            case 2:
+                printf("SL Ticket selected\n");
+                break;
+            case 3:
+                printf("AC Ticket selected\n");
+                break;
+            default:
+                printf("Invalid Option\n");
+                break;
+        }
     }
+    else if (ticket_status == 'n' || ticket_status == 'N')
+    {
+        printf("Will go by Bus\n");
+        printf("please select ticket type\n 1.SL \n 2. 2s\n");
+        scanf("%d",&ticket_type);
+        switch(ticket_type)
+        {
+            case 1:
+            printf("SL ticket selected \n");
+            break;
+            case 2:
+            printf("2s ticket selected\n");
+            break;
+            default:
+            printf("invalid option\n");
+            break;
+        }
+    }
+    else
+        printf("Invalid option\n");
     return 0;
 }
