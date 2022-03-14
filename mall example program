@@ -2,8 +2,8 @@
 
 int main()
 {
-    char ticket_status,ticket_type,game_type;
-    int ticket_price,sum=0,food_type;
+    char ticket_status,ticket_type;
+    int ticket_price,game_type,food_type,Total_cost=0,Movies_cost=0,Games_cost=0,restaurant_cost=0;
     printf("are tickets available ?, enter 'Y' or 'N' \n");
     scanf("%c",&ticket_status);
     while ((getchar()) != '\n');
@@ -17,12 +17,18 @@ int main()
         {
             case 1:
                     printf("Low class seat selected\n");
+                    Movies_cost=(4*100);
+                    printf("4 members low class tickets total cost %d \n",Movies_cost);
                     break;
             case 2:
                     printf("Medium class seat selected\n");
-                    break;
+                    Movies_cost=(4*200);
+                    printf("4 members medium class tickets total cost %d \n",Movies_cost);
+                    break; 
             case 3:
                     printf("Balcony class seat selected\n");
+                    Movies_cost=(4*300);
+                    printf("4 members balcony class tickets total cost %d \n",Movies_cost);
                     break;
             default:
                     printf("invalid option\n");
@@ -34,61 +40,67 @@ int main()
     else if(ticket_status=='n'|| ticket_status=='N')
     {
         printf("Go to game zone \n");
+        do {
         printf("Choose Games \n 1.Four Arcade Games \n 2.Three Shooting Games \n 3.Three VR Games \n");
-        scanf("%c",&game_type);
+        scanf("%d",&game_type);
         switch(game_type)
         {
-            
-            case '1':
+            case 1:
                     printf("Each game cost 35rs \n");
                     printf("4 Arcade games selected \n");
-                    sum=(4*35);
-                    printf("4 arcade total games cost %d \n",sum);
+                    Games_cost=(4*35);
+                    printf("4 arcade total games cost %d \n",Games_cost);
                     break;
-                    
-            case '2':
+                
+            case 2:
                     printf("Each game cost 55rs\n");
                     printf("3 Shooting games selected\n");
-                    sum=(3*55);
-                    printf("3 shooting games cost %d \n",sum);
+                    Games_cost=(3*55);
+                    printf("3 shooting games cost %d \n",Games_cost);
                     break;
                     
-            case '3':
+            case 3:
                     printf("Each game cost 125rs\n");
                     printf("3 VR games selected \n");
-                    sum=(3*125);
-                    printf("3 VR games cost %d \n",sum);
+                    Games_cost=(3*125);
+                    printf("3 VR games cost %d \n",Games_cost);
                     break;
-                    
-            default:
-                    printf("invalid option\n");
-                    break;
-            
+            //default:
+                    //printf("invalid option\n");
+                    //break;
         }
+            }while(game_type < 3);
     }
     printf("Go to restaurant\n");
-    printf("display menu \n 1.biriyani\n 2.starters\n 3.Ice creams\n");
+    do {
+    printf("display menu \n 1.biriyani\n 2.starters\n 3.Ice creams\n 4. Bill\n");
     scanf("%d",&food_type);
     switch(food_type)
     {
+       
         case 1:
                 printf("Each biriyani cost 315rs\n");
-                sum=2*315;
-                printf("biriyanis cost:%d \n",sum);
+                restaurant_cost=2*315;
+                printf("biriyanis cost:%d \n",restaurant_cost);
                 break;
+        
         case 2:
                 printf("Each starter cost 295rs\n");
-                sum=3*295;
-                printf("starters cost:%d \n",sum);
+                restaurant_cost=3*295;
+                printf("starters cost:%d \n",restaurant_cost);
                 break;
         case 3:
                 printf("Ice creams 175rs\n");
-                sum=3*175;
-                printf("Ice creams cost:%d \n",sum);
+                restaurant_cost=3*175;
+                printf("Ice creams cost:%d \n",restaurant_cost);
                 break;
-        case 4:
-                printf("invalid food item");
-                break;
-    }
+       // default:
+                //printf("invalid food item \n");
+                //break;
+        }      
+    }while(food_type < 4);
+    
+    Total_cost=Movies_cost+Games_cost+restaurant_cost;
+    printf("Total Cost: %d\n",Total_cost);
  return 0;
 }
